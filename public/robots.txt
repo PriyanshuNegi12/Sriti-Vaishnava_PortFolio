@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After the domain is live, replace YOUR-DOMAIN:
+Sitemap: https://YOUR-DOMAIN/sitemap.xml

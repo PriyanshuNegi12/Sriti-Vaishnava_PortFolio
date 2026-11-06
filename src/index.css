@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* THEME — primary: warm ivory · secondary: deep teal · third: coral   */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ivory: #f3eee8; /* primary  — page background            */
+  --color-ivory-deep: #e9e1d6; /* borders, soft panels                  */
+  --color-paper: #fbf8f3; /* cards on ivory                        */
+  --color-teal: #17645f; /* secondary — headings, buttons, footer */
+  --color-teal-dark: #0f4a46;
+  --color-teal-ink: #12302d; /* body text                             */
+  --color-teal-mist: #dce9e6; /* soft teal tint                        */
+  --color-coral: #ff6845; /* third — accents, highlights           */
+  --color-coral-soft: #ffe3db;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Set by an inline script in index.html before React loads, so first-time
+   visitors see the intro's ivory backdrop instead of a white flash. */
+html.intro-pending {
+  background: #f3eee8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem; /* fixed header + room for the 28px reveal offset */
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-teal-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* never a horizontal scrollbar on phones */
+  }
+  ::selection {
+    background: var(--color-coral);
+    color: #2a0f08;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+/* Tap highlight: soft coral instead of the default grey box on phones */
+a,
+button {
+  -webkit-tap-highlight-color: rgba(255, 104, 69, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,109 @@
+/* Map styling — custom pin, tooltip and controls to match the ivory / teal / coral theme */
+.sv-map.leaflet-container {
+  background: var(--color-ivory-deep);
+  font-family: var(--font-sans);
+  border-radius: inherit;
+}
+
+/* ----- pin ----- */
+.sv-pin-wrap {
+  background: none;
+  border: 0;
+}
+.sv-pin {
+  position: relative;
+  width: 44px;
+  height: 56px;
+  transition: transform 0.35s var(--ease-out-expo), filter 0.35s;
+  transform-origin: 50% 96%;
+  filter: drop-shadow(0 6px 6px rgba(18, 48, 45, 0.35));
+}
+.sv-pin__body {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #f3eee8;
+  background: #17645f;
+  border: 3px solid #f3eee8;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  transition: background-color 0.3s;
+}
+.sv-pin__body svg {
+  transform: rotate(45deg);
+}
+.sv-pin__pulse {
+  position: absolute;
+  left: 9px;
+  top: 41px;
+  width: 26px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 104, 69, 0.55);
+  opacity: 0;
+}
+.sv-pin-wrap.is-active .sv-pin {
+  transform: scale(1.18);
+}
+.sv-pin-wrap.is-active .sv-pin__body {
+  background: #ff6845;
+  color: #12302d;
+}
+.sv-pin-wrap.is-active .sv-pin__pulse {
+  animation: sv-pulse 1.8s ease-out infinite;
+}
+@keyframes sv-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sv-pin-wrap.is-active .sv-pin__pulse { animation: none; opacity: 0.6; }
+}
+
+/* ----- label above the pin ----- */
+.sv-tip.leaflet-tooltip {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #17645f;
+  color: #f3eee8;
+  font: 600 12px/1 var(--font-sans);
+  box-shadow: 0 8px 18px -8px rgba(18, 48, 45, 0.6);
+}
+.sv-tip.leaflet-tooltip-top::before {
+  border-top-color: #17645f;
+}
+
+/* ----- zoom buttons ----- */
+.sv-map .leaflet-bar {
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px -12px rgba(18, 48, 45, 0.6);
+}
+.sv-map .leaflet-bar a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #17645f;
+  background: #fbf8f3;
+  border-bottom: 1px solid #e9e1d6;
+  transition: background-color 0.2s, color 0.2s;
+}
+.sv-map .leaflet-bar a:hover {
+  background: #17645f;
+  color: #f3eee8;
+}
+.sv-map .leaflet-control-attribution {
+  background: rgba(251, 248, 243, 0.85);
+  color: #12302d;
+  font-size: 10px;
+  border-radius: 8px 0 0 0;
+}
+.sv-map .leaflet-control-attribution a {
+  color: #17645f;
+}
