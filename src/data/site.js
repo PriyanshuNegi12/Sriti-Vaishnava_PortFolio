@@ -10,9 +10,14 @@ export const SITE = {
   designation: 'Advocate',
   court: 'Dehradun District Court',
 
-  // Value-based (not promotional). Alternatives to choose from:
-  //  "Clear advice. Careful advocacy."  ·  "Justice that is understood, not just delivered."
-  slogan: { before: 'Law, with', emphasis: 'clarity', after: 'and care.' },
+  // Homepage headline, shown in three parts. The middle part gets the coral underline.
+  // Quote: "Of the people, by the people, for the people."
+  // (The spaces INSIDE each part are non-breaking, so every clause stays on one line.)
+  slogan: {
+    before: 'Of the people,',
+    emphasis: 'by the people,',
+    after: 'for the people.',
+  },
 
   enrolment: {
     number: '737/2021',

@@ -24,11 +24,20 @@ export const GALLERY = [
   },
   {
     id: 'office',
-    file: 'commissioner-office.webp',
-    w: 722,
+    file: 'commissioner-office.jpeg',
+    w: 2133,
     h: 1600,
     alt: 'Adv. Sriti Vaishnava seated in the Office of the Commissioner for Persons with Disabilities, Uttarakhand',
     caption: 'Office of the Commissioner for Persons with Disabilities, Uttarakhand',
     category: 'Office',
+  },
+  {
+    id: 'workday',
+    file: 'workday-lift.jpg',
+    w: 690,
+    h: 1280,
+    alt: 'Adv. Sriti Vaishnava taking a mirror photo in a lift, wearing a navy waistcoat, light blue shirt and dark trousers, and holding some papers.',
+    caption: 'A moment before the day begins',
+    category: 'Work',
   },
 ].map((p) => ({ ...p, src: url(p.file) }));

@@ -28,6 +28,8 @@ html.intro-pending {
 
 @layer base {
   html {
+    overflow-x: hidden; /* fallback for older browsers */
+    overflow-x: clip; /* nothing sliding in from the side can ever widen the page */
     scroll-behavior: smooth;
     scroll-padding-top: 7rem; /* fixed header + room for the 28px reveal offset */
     -webkit-text-size-adjust: 100%;
@@ -38,7 +40,8 @@ html.intro-pending {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden; /* never a horizontal scrollbar on phones */
+    overflow-x: hidden;
+    overflow-x: clip; /* never a horizontal scrollbar on phones */
   }
   ::selection {
     background: var(--color-coral);
